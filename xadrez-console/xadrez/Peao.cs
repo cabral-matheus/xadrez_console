@@ -24,13 +24,6 @@ namespace xadrez
             return tab.peca(pos) == null;
         }
 
-
-        private bool podeMover(Posicao pos)
-        {
-            Peca p = tab.peca(pos);
-            return p == null || p.cor != cor;
-        }
-
         public override bool[,] movimentosPossiveis()
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
@@ -45,7 +38,8 @@ namespace xadrez
                     mat[pos.linha, pos.coluna] = true;
                 }
                 pos.definirValores(posicao.linha - 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                Posicao p2 = new Posicao(posicao.linha - 1, posicao.coluna);
+                if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -67,7 +61,8 @@ namespace xadrez
                     mat[pos.linha, pos.coluna] = true;
                 }
                 pos.definirValores(posicao.linha + 2, posicao.coluna);
-                if (tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
+                Posicao p2 = new Posicao(posicao.linha + 1, posicao.coluna);
+                if (tab.posicaoValida(p2) && livre(p2) && tab.posicaoValida(pos) && livre(pos) && qteMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -82,7 +77,6 @@ namespace xadrez
                     mat[pos.linha, pos.coluna] = true;
                 }
             }
-
 
             return mat;
         }

@@ -34,7 +34,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.definirValores(pos.linha - 1, pos.coluna);
             }
 
             //abaixo
@@ -46,7 +46,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.definirValores(pos.linha + 1, pos.coluna);
             }
 
             //direita
@@ -58,7 +58,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.definirValores(pos.linha, pos.coluna + 1);
             }
 
             //esquerda
@@ -70,7 +70,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.definirValores(pos.linha, pos.coluna - 1);
             }
 
             //NO
@@ -94,7 +94,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
+                pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
 
             //SE
@@ -106,7 +106,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
+                pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
 
             //SO
@@ -118,7 +118,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
+                pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
 
             return mat;
